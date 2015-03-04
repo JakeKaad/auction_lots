@@ -1,0 +1,7 @@
+<h1> Pennybag's Auctions </h1>
+
+<ul>
+  {{#each lot in model}}
+    <li>{{#link-to 'lot' lot}}{{lot.title}}{{/link-to}}</li>
+  {{/each}}
+</ul>

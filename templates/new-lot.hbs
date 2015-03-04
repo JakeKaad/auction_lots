@@ -1,0 +1,24 @@
+<h1>New Lots</h1>
+<form>
+  <div class="form-group">
+    <label for="title">Your Lot</label>
+    {{input value=title id="title" class="form-control"}}
+  </div>
+
+  <div class="form-group">
+    <label for="date-of-auction">Date of Auction</label>
+    {{input type="date" value=dateOfAuction id="date-of-auction" class="form-control"}}
+  </div>
+
+  <div class="form-group">
+    <label for="location">Location of Auction</label>
+    {{input value=location id="location" class="form-control"}}
+  </div>
+
+  <div class="form-group">
+    <label for="description">Description</label>
+    {{textarea rows="10" value=description id="description" class="form-control"}}
+  </div>
+
+  <button class="btn btn-info" {{action 'save'}}>Save</button>
+</form>
