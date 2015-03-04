@@ -1,0 +1,33 @@
+<form>
+  <div class="form-group">
+    <label for="name">Item Name</label>
+    {{input value=name id="name" class="form-control"}}
+  </div>
+
+  <div class="form-group">
+    <label for="backstory">Backstory</label>
+    {{textarea rows="10" value=backstory id="backstory" class="form-control"}}
+  </div>
+
+  <div class="form-group">
+    <label for="reserve">Reserve</label>
+    {{input type='number' value=reserve id="reserve" class="form-control"}}
+  </div>
+
+  <div class="form-group">
+    <label for="estimate">Estimate</label>
+    {{input type="number" value=estimate id="estimate" class="form-control"}}
+  </div>
+
+  <div class="form-group">
+    <label for="owner">Owner</label>
+    {{input value=owner id="owner" class="form-control"}}
+  </div>
+
+  <div class="form-group">
+    <label for="image-url">Image Url</label>
+    {{input value=imageUrl id="image-url" class="form-control"}}
+  </div>
+
+  <button class="btn btn-info" {{action 'saveItem'}}>Save</button>
+</form>

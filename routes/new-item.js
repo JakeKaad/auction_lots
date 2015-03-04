@@ -1,4 +1,4 @@
-Pennybats.NewItemRoute = Ember.Route.extend({
+Pennybags.NewItemRoute = Ember.Route.extend({
   model: function(params) {
     var lot = this.modelFor('lot');
     var item = this.store.createRecord('item');
