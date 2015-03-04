@@ -1,0 +1,1 @@
+Pennybags = Ember.Application.create();
