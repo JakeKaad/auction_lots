@@ -1,10 +1,47 @@
+{{#if isEditingLot}}
+  <form>
+    <div class="form-group">
+      <label for="title">Your Lot</label>
+      {{input value=title id="title" class="form-control"}}
+    </div>
+
+    <div class="form-group">
+      <label for="date-of-auction">Date of Auction</label>
+      {{input type="date" value=dateOfAuction id="date-of-auction" class="form-control"}}
+    </div>
+
+    <div class="form-group">
+      <label for="location">Location of Auction</label>
+      {{input value=location id="location" class="form-control"}}
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description</label>
+      {{textarea rows="10" value=description id="description" class="form-control"}}
+    </div>
+
+    <button class="btn btn-xs btn-info" {{action 'save'}}>Save</button>
+  </form>
+{{else}}
+
 <h1>{{title}}</h1>
+<h6>Date of auction: {{dateOfAuction}}</h6>
+<h6>Location: {{location}}</h6>
+<h6>Description: {{description}}</h6>
+
 
 {{#each item in items}}
     <div class="col-md-8 well">
-      <img class='item-img col-md-2' src='../img/ph.jpg'>
+      <img class='item-img col-md-2' {{bind-attr src="item.imageUrl"}}>
       <div class="col-md-10">
         <span class='item-name'>{{item.name}}</span>
+        <br>
+        <span class='item-backstory'>Backstory: {{item.backstory}}</span>
+        <br>
+        <span class='item-reserve'>Reserve: ${{item.reserve}}</span>
+        <br>
+        <span class='item-estimate'>Estimate: ${{item.estimate}}</span>
+        <br>
         <span class='item-owner'>Sold by: {{item.owner}}</span>
         <hr>
 
@@ -16,37 +53,18 @@
   </div>
 {{/each}}
 
-
-
-
 <div class='col-md-12'>
   {{outlet}}
-  {{#link-to 'new-item' this class='btn btn-success'}}Add Item{{/link-to}}
-</div>
+  {{#if notCreatingItem}}
+    <button this class='btn btn-xs btn-success' {{action "creatingItem"}}>
+      Add Item
+    </button>
+  {{/if}}
 
-
-<!-- Yesterday's Code <h1>{{title}}</h1>
-
-{{#each item in items}}
-    <div class="col-md-8 well">
-      <img class='item-img col-md-2' src='../img/ph.jpg'>
-      <div class="col-md-10">
-        <span class='item-name'>{{item.name}}</span>
-        <span class='item-owner'>Sold by: {{item.owner}}</span>
-        <hr>
-
-    {{#each item in items itemController="item"}}
-      <button class="btn btn-xs btn-danger" {{action 'delete'}}>Delete</button>
-    {{/each}}
-
-    </div>
+  <div class="delete-lot">
+    <hr>
+    <button class="btn btn-xs btn-danger" {{action 'deleteLot'}}>Delete Lot</button>
+    <button class="btn btn-xs btn-primary" {{action 'edit'}}>Edit Lot</button>
   </div>
-{{/each}}
-
-
-
-
-<div class='col-md-12'>
-  {{outlet}}
-  {{#link-to 'new-item' this class='btn btn-success'}}Add Item{{/link-to}}
-</div> -->
+</div>
+{{/if}}
