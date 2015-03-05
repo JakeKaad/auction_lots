@@ -25,7 +25,7 @@ Pennybags.LotController = Ember.ObjectController.extend({
       this.set('isEditingLot', false);
     },
     creatingItem: function() {
-      // this.toggleProperty('notCreatingItem');
+      this.toggleProperty('notCreatingItem');
       this.transitionToRoute("new-item")
     },
     savedItem: function() {
