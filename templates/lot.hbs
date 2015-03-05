@@ -1,18 +1,22 @@
 <h1>{{title}}</h1>
 
 {{#each item in items}}
-  <div>
     <div class="col-md-8 well">
       <img class='item-img col-md-2' src='../img/ph.jpg'>
       <div class="col-md-10">
         <span class='item-name'>{{item.name}}</span>
         <span class='item-owner'>Sold by: {{item.owner}}</span>
-        <br>
-        {{item.backstory}}
-      </div>
+        <hr>
+
+    {{#each item in items itemController="item"}}
+      <button class="btn btn-xs btn-danger" {{action 'delete'}}>Delete</button>
+    {{/each}}
+
     </div>
   </div>
 {{/each}}
+
+
 
 
 <div class='col-md-12'>
